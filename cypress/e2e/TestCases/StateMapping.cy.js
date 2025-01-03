@@ -5,25 +5,25 @@ import StateRepo from "../Reusable-Utilities/StateRepo.cy";
 describe("State Name Validation in Multiple Languages", () => {
   const expectedStates = StateRepo.getExpectedStates();
 
-//   it("Validates state names in English", () => {
-//     // Ensure the dropdown exists and is visible
-//     cy.visit(Cypress.env('url') + 'tyres/');
-//     cy.get('.container-mid > .section-css-slider > :nth-child(2) > .new-equipment-card-main > .new-equipment-card-anchor > .new-equipment-anchor').click();
-//     cy.get('#statesid2').should('be.visible').and('exist');
+  it("Validates state names in English", () => {
+    // Ensure the dropdown exists and is visible
+    cy.visit(Cypress.env('url') + 'tyres/');
+    cy.get('.container-mid > .section-css-slider > :nth-child(2) > .new-equipment-card-main > .new-equipment-card-anchor > .new-equipment-anchor').click();
+    cy.get('#statesid2').should('be.visible').and('exist');
     
-//     // Wait for the state options to load (using intercept if necessary)
-//     cy.intercept('GET', '/ajax/newsletterstate').as('loadStates');
-//     cy.wait('@loadStates');
+    // Wait for the state options to load (using intercept if necessary)
+    cy.intercept('GET', '/ajax/newsletterstate').as('loadStates');
+    cy.wait('@loadStates');
     
-//     // Ensure the dropdown options are populated correctly, excluding the "Select state" placeholder
-//     cy.get('#statesid2 option').not(':first').should('have.length', expectedStates.length);
+    // Ensure the dropdown options are populated correctly, excluding the "Select state" placeholder
+    cy.get('#statesid2 option').not(':first').should('have.length', expectedStates.length);
 
-//     // Loop through the options and validate their text strictly
-//     expectedStates.forEach((state, index) => {
-//       cy.get(`#statesid2 option:nth-child(${index + 2})`) // Adjust for the first placeholder option
-//         .should('have.text', state.english); // Ensure exact match
-//     }); 
-//   });
+    // Loop through the options and validate their text strictly
+    expectedStates.forEach((state, index) => {
+      cy.get(`#statesid2 option:nth-child(${index + 2})`) // Adjust for the first placeholder option
+        .should('have.text', state.english); // Ensure exact match
+    }); 
+  });
 
 //   it("Validates state names in Hindi", () => {
 //     let mismatchedStates = []; // Array to track mismatches
@@ -203,16 +203,16 @@ describe("State Name Validation in Multiple Languages", () => {
 // });
 
 
-describe('Lead : New Harvesters Suite', function() {
+// describe('Lead : New Harvesters Suite', function() {
   
-  it('TJWA_TC_LNH_001', function() {
+//   it('TJWA_TC_LNH_001', function() {
       
-    cy.visit(Cypress.env('url') + 'tyres/', { timeout: 10000 });
-    cy.get('.container-mid > .section-css-slider > :nth-child(2) > .new-equipment-card-main > .new-equipment-card-anchor > .new-equipment-anchor').click();
-    cy.get('#statesid2').click();
+//     cy.visit(Cypress.env('url') + 'tyres/', { timeout: 10000 });
+//     cy.get('.container-mid > .section-css-slider > :nth-child(2) > .new-equipment-card-main > .new-equipment-card-anchor > .new-equipment-anchor').click();
+//     cy.get('#statesid2').click();
 
-  });
+//   });
 
-});
+// });
 
 });
