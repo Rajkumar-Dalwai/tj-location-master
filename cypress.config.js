@@ -2,12 +2,13 @@ const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
   env: {
-    url: "https://t1tj.tractorfirst.com/",
+    // url: "https://t1tj.tractorfirst.com/",
+    url: "https://dv1tj.tractorfirst.com/",
   },
 
   retries: {
     runMode: 1,
-    openMode: 1, // Optional: Adds retries for interactive mode
+    // openMode: 1, // Optional: Adds retries for interactive mode
   },
 
   e2e: {
