@@ -2,8 +2,7 @@ const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
   env: {
-    // url: "https://t1tj.tractorfirst.com/",
-    url: "https://dv1tj.tractorfirst.com/",
+    url: "https://t1tj.tractorfirst.com/",
   },
 
   retries: {
@@ -26,3 +25,7 @@ module.exports = defineConfig({
     // specPattern: 'cypress/e2e/BDD/*.feature'
   },
 });
+
+
+ // url: "https://dv1tj.tractorfirst.com/",
+    // url: "https://www.tractorjunction.com/",
