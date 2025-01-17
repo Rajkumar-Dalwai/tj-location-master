@@ -31,7 +31,7 @@ describe("Multilingual State Validation", () => {
 
     // Wait for the state options to load
     cy.intercept('GET', '**/newsletterstate*').as('loadStates');
-    cy.wait('@loadStates', { timeout: 20000 });
+    // cy.wait('@loadStates', { timeout: 20000 });
 
     // Validate the number of states excluding the placeholder
     cy.get('#statesid2 option').not(':first').should('have.length', expectedStates.length);

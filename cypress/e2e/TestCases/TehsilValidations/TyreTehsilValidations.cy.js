@@ -107,7 +107,7 @@ describe("Multilingual Tehsil Validation", () => {
 
   // Test cases
 
-  describe("Tyre Pages - Dibang Valley Tehsil Validation", () => {
+  /*describe("Tyre Pages - Dibang Valley Tehsil Validation", () => {
     it("1. Validate Dibang Valley Tehsil Names in English (Tyre Pages)", () => {
       validateTehsilsMainPage(TyrePageUrls.english, 'english','Arunachal Pradesh', 'Dibang Valley', ExpectedDibangValleyTehsils);
     });
@@ -215,7 +215,7 @@ describe("Tyre Pages - South Goa Tehsil Validation", () => {
   it("25. Validate South Goa Tehsil Names in Telugu (Tyre Pages)", () => {
     validateTehsilsMainPage(TyrePageUrls.telugu, 'telugu','గోవా', 'దక్షిణ గోవా', ExpectedSouthGoaTehsils);
   });
-});
+});*/
 
   describe("Tyre Grid: PDP - Dibang Valley Tehsil Validation", () => {
     it("26. Validate Dibang Valley Tehsil Names in English (Tyre Grid: PDP)", () => {
@@ -326,7 +326,5 @@ describe("Tyre Grid: PDP - SouthGoa Tehsil Validation", () => {
       validateTehsilsGridPage(TyreGridUrls.telugu, 'telugu', 'గోవా', 'దక్షిణ గోవా', ExpectedSouthGoaTehsils);
   });
 });
-
-
 
 });

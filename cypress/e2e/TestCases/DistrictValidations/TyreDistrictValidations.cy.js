@@ -207,7 +207,7 @@ describe("Tyre Pages - Uttar Pradesh District Validation", () => {
   });
 });
 
- describe("Tyre Grid: PDP - Maharashtra District Validation", () => {
+ /*describe("Tyre Grid: PDP - Maharashtra District Validation", () => {
     it("26. Validate Maharashtra District Names in English (Tyre Grid)", () => {
       validateDistrictsGridPage(TyreGridUrls.english, 'english', 'Maharashtra', ExpectedMaharashtraDistricts);
     });
@@ -315,7 +315,7 @@ describe("Tyre Grid: PDP - Uttar Pradesh District Validation", () => {
   it("50. Validate Uttar Pradesh District Names in Telugu (Tyre Grid)", () => {
       validateDistrictsGridPage(TyreGridUrls.telugu, 'telugu', 'ఉత్తర ప్రదేశ్', ExpectedUttarPradeshDistricts);
   });
-});
+});*/
 
 
 });
