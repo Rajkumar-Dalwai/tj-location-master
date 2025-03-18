@@ -32,7 +32,7 @@ class OdishaVsDistrictsRepo {
         { english: "Sambalpur", hindi: "संबलपुर", tamil: "சம்பல்பூர்", telugu: "సంబల్పూర్", marathi: "संबळपूर" },
         { english: "Sonapur", hindi: "सोनापुर", tamil: "சோனாபூர்", telugu: "సోనాపూర్", marathi: "सोनापूर" },
         { english: "Sonepur", hindi: "सोनपुर", tamil: "சோனேபூர்", telugu: "సోనేపూర్", marathi: "सोनपूर" },
-        { english: "Subarnapur", hindi: "सुबर्णपूर", tamil: "சுபர்ணபூர்", telugu: "సుబర్ణపూర్", marathi: "सुबर्णपूर" },
+        { english: "Subarnapur", hindi: "सुबर्णपूर", tamil: "சுபர்ணாபூர்", telugu: "సుబర్ణపూర్", marathi: "सुबर्णपूर" },
         { english: "Sundargarh", hindi: "सुंदरगढ़", tamil: "சுந்தர்கர்", telugu: "సుందర్‌ఘర్", marathi: "सुंदरगड" },
       ];
     }

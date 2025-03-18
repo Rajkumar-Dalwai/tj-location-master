@@ -52,7 +52,7 @@ class RajasthanVsDistrictsRepo {
         { english: "Sirohi", hindi: "सिरोही", tamil: "சிரோஹி", telugu: "సిరోహి", marathi: "सिरोही" },
         { english: "Sriganganagar", hindi: "श्रीगंगानगर", tamil: "ஸ்ரீகங்கநகர்", telugu: "శ్రీగంగనగర్", marathi: "श्रीगंगानगर" },
         { english: "Tonk", hindi: "टोंक", tamil: "டோங்க்", telugu: "టోంక్", marathi: "टोंक" },
-        { english: "Udaipur", hindi: "उदयपुर", tamil: "உதயபூர்", telugu: "ఉదయపూర్", marathi: "उदयपूर" }
+        { english: "Udaipur", hindi: "उदयपुर", tamil: "உதய்பூர்", telugu: "ఉదయపూర్", marathi: "उदयपूर" }
       ];
     }
   }
