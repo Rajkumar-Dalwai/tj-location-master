@@ -5,7 +5,7 @@ class KarnatakaVsDistrictsRepo {
         { english: "Ballari", hindi: "बल्लारी", tamil: "பல்லாரி", telugu: "బళ్లారి", marathi: "बल्लारी" },
         { english: "Bangalore", hindi: "बैंगलोर", tamil: "பெங்களூர்", telugu: "బెంగళూరు", marathi: "बंगलोर" },
         { english: "Bangalore Rural", hindi: "बेंगलुरु ग्रामीण", tamil: "பெங்களூரு கிராமப்புறம்", telugu: "బెంగళూరు రూరల్", marathi: "बंगळुरू ग्रामीण" },
-        { english: "Belagavi (Belgaum)", hindi: " बेलगावी (बेलगाम)", tamil: "பெலகாவி", telugu: "బెలగావి", marathi: "बेलागावी" },
+        { english: "Belagavi (Belgaum)", hindi: "बेलगावी (बेलगाम)", tamil: "பெலகாவி", telugu: "బెలగావి", marathi: "बेलागावी" },
         { english: "Bengaluru Urban", hindi: "बेंगलुरु शहरी", tamil: "பெங்களூரு நகர்ப்புறம்", telugu: "బెంగళూరు అర్బన్", marathi: "बेंगळुरू शहरी" },
         { english: "Bidar", hindi: "बीदर", tamil: "பிதார்", telugu: "బీదర్", marathi: "बिदर" },
         { english: "Chamarajanagara", hindi: "चामराजनगर", tamil: "சாமராஜநகர்", telugu: "చామరాజనగర", marathi: "चामराजनगरा" },

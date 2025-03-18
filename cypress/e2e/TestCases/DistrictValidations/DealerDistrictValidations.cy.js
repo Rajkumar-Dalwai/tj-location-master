@@ -15,11 +15,11 @@ describe("Multilingual District Validation", () => {
   const ExpectedWestBengalDistricts = WestBengalVsDistrictsRepo.getExpectedWestBengalDistricts();
 
   const DealerPageUrls = {
-    english: `${Cypress.env('url')}find-tractor-dealers/powertrac/`,
-    hindi: `${Cypress.env('url')}hi/find-tractor-dealers/powertrac/`,
-    marathi: `${Cypress.env('url')}mr/find-tractor-dealers/powertrac/`,
-    tamil: `${Cypress.env('url')}ta/find-tractor-dealers/powertrac/`,
-    telugu: `${Cypress.env('url')}te/find-tractor-dealers/powertrac/`,
+    english: `${Cypress.env('url')}find-tractor-dealers/mahindra/`,
+    hindi: `${Cypress.env('url')}hi/find-tractor-dealers/mahindra/`,
+    marathi: `${Cypress.env('url')}mr/find-tractor-dealers/mahindra/`,
+    tamil: `${Cypress.env('url')}ta/find-tractor-dealers/mahindra/`,
+    telugu: `${Cypress.env('url')}te/find-tractor-dealers/mahindra/`,
   };
 
   const DealerGridUrls = {
@@ -33,8 +33,11 @@ describe("Multilingual District Validation", () => {
   // Reusable function for Main Page
   const validateDistrictsMainPageForDealer = (pageUrl, languageKey, stateName, expectedDistrictsForDealer) => {
     cy.visit(pageUrl);
-    cy.get(':nth-child(2) > .bg-color-white > .new-equipment-anchor').first().click();
+    cy.wait(2000);
+    cy.get(':nth-child(7) > .bg-color-white > .new-equipment-anchor').first().click();
+    cy.wait(2000);
     cy.get('#states').should('be.visible').select(stateName);
+    cy.wait(2000);
 
     // cy.intercept('GET', '/ajax/get-districts/*').as('loadDistricts');
     // cy.wait('@loadDistricts', { timeout: 15000 }).its('response.statusCode').should('eq', 200);
@@ -64,23 +67,25 @@ describe("Multilingual District Validation", () => {
   };
 
  // Reusable function for Grid Page
- const validateDistrictsGridPage = (pageUrl, languageKey, stateName, expectedDistrictsForDealer) => {
+ const validateDistrictsGridPageForDealer = (pageUrl, languageKey, stateName, expectedDistrictsForDealer) => {
   cy.visit(pageUrl);
   cy.scrollTo('bottom', { duration: 5000 });
   cy.get('.cross', { timeout: 15000 }).should('be.visible').click();
   cy.wait(2000);
-  cy.get(':nth-child(1) > .new-equipment-card-main > .new-equipment-card-anchor > .new-equipment-anchor').click();
-  cy.get('#statesid2').should('be.visible').select(stateName);
+  cy.get(':nth-child(6) > .bg-color-white > .new-equipment-anchor').click();
+  cy.get('#states').should('be.visible').select(stateName);
 
   // cy.intercept('GET', '/ajax/get-districts/*').as('loadDistricts');
   // cy.wait('@loadDistricts', { timeout: 15000 }).its('response.statusCode').should('eq', 200);
 
-  cy.get('#tractor_submit_form2 > .row > :nth-child(4) > .custom-select option')
+  cy.get('.modal.show > .modal-dialog > .modal-content > .customModal-body > #tractor_submit_form > .row > :nth-child(5) > #gorp_form_dist_id')
+    .find('option')
     .not(':first')
     .should('have.length', expectedDistrictsForDealer.length);
 
   let mismatches = [];
-  cy.get('#tractor_submit_form2 > .row > :nth-child(4) > .custom-select option')
+  cy.get('.modal.show > .modal-dialog > .modal-content > .customModal-body > #tractor_submit_form > .row > :nth-child(5) > #gorp_form_dist_id')
+    .find('option')
     .not(':first')
     .each(($option, index) => {
       const actual = $option.text().trim();
@@ -97,9 +102,8 @@ describe("Multilingual District Validation", () => {
     });
 };
 
-
   // Test cases
-  describe("Dealer Pages - Andhra Pradesh District Validation", () => {
+  /*describe("Dealer Pages - Andhra Pradesh District Validation", () => {
     it("1. Validate Andhra Pradesh District Names in English (Dealer Pages)", () => {
       validateDistrictsMainPageForDealer(DealerPageUrls.english, 'english', 'Andhra Pradesh', ExpectedAndhraPradeshDistricts);
     });
@@ -121,7 +125,7 @@ describe("Multilingual District Validation", () => {
     });
   });
 
-   /*describe("Dealer Pages - Gujarat District Validation", () => {
+   describe("Dealer Pages - Gujarat District Validation", () => {
     it("6. Validate Gujarat District Names in English (Dealer Pages)", () => {
       validateDistrictsMainPageForDealer(DealerPageUrls.english, 'english', 'Gujarat', ExpectedGujaratDistricts);
     });
@@ -209,115 +213,115 @@ describe("Dealer Pages - West Bengal District Validation", () => {
   });
 });*/
 
- /*describe("Dealer Grid: PDP - Andhra Pradesh District Validation", () => {
+ describe("Dealer Grid: PDP - Andhra Pradesh District Validation", () => {
     it("26. Validate Andhra Pradesh District Names in English (Dealer Grid)", () => {
-      validateDistrictsGridPage(DealerGridUrls.english, 'english', 'Andhra Pradesh', ExpectedAndhraPradeshDistricts);
+      validateDistrictsGridPageForDealer(DealerGridUrls.english, 'english', 'Andhra Pradesh', ExpectedAndhraPradeshDistricts);
     });
 
     it("27. Validate Andhra Pradesh District Names in Hindi (Dealer Grid)", () => {
-      validateDistrictsGridPage(DealerGridUrls.hindi, 'hindi', 'आंध्र प्रदेश', ExpectedAndhraPradeshDistricts);
+      validateDistrictsGridPageForDealer(DealerGridUrls.hindi, 'hindi', 'आंध्र प्रदेश', ExpectedAndhraPradeshDistricts);
     });
 
     it("28. Validate Andhra Pradesh District Names in Marathi (Dealer Grid)", () => {
-      validateDistrictsGridPage(DealerGridUrls.marathi, 'marathi', 'आंध्र प्रदेश', ExpectedAndhraPradeshDistricts);
+      validateDistrictsGridPageForDealer(DealerGridUrls.marathi, 'marathi', 'आंध्र प्रदेश', ExpectedAndhraPradeshDistricts);
     });
 
     it("29. Validate Andhra Pradesh District Names in Tamil (Dealer Grid)", () => {
-      validateDistrictsGridPage(DealerGridUrls.tamil, 'tamil', 'ஆந்திரப் பிரதேசம்', ExpectedAndhraPradeshDistricts);
+      validateDistrictsGridPageForDealer(DealerGridUrls.tamil, 'tamil', 'ஆந்திரப் பிரதேசம்', ExpectedAndhraPradeshDistricts);
     });
 
     it("30. Validate Andhra Pradesh District Names in Telugu (Dealer Grid)", () => {
-      validateDistrictsGridPage(DealerGridUrls.telugu, 'telugu', 'ఆంధ్రప్రదేశ్', ExpectedAndhraPradeshDistricts);
+      validateDistrictsGridPageForDealer(DealerGridUrls.telugu, 'telugu', 'ఆంధ్రప్రదేశ్', ExpectedAndhraPradeshDistricts);
     });
   });
 
   describe("Dealer Grid: PDP - Gujarat District Validation", () => {
     it("31. Validate Gujarat District Names in English (Dealer Grid)", () => {
-      validateDistrictsGridPage(DealerGridUrls.english, 'english', 'Gujarat', ExpectedGujaratDistricts);
+      validateDistrictsGridPageForDealer(DealerGridUrls.english, 'english', 'Gujarat', ExpectedGujaratDistricts);
     });
 
     it("32. Validate Gujarat District Names in Hindi (Dealer Grid)", () => {
-      validateDistrictsGridPage(DealerGridUrls.hindi, 'hindi', 'गुजरात', ExpectedGujaratDistricts);
+      validateDistrictsGridPageForDealer(DealerGridUrls.hindi, 'hindi', 'गुजरात', ExpectedGujaratDistricts);
     });
 
     it("33. Validate Gujarat District Names in Marathi (Dealer Grid)", () => {
-      validateDistrictsGridPage(DealerGridUrls.marathi, 'marathi', 'गुजरात', ExpectedGujaratDistricts);
+      validateDistrictsGridPageForDealer(DealerGridUrls.marathi, 'marathi', 'गुजरात', ExpectedGujaratDistricts);
     });
 
     it("34. Validate Gujarat District Names in Tamil (Dealer Grid)", () => {
-      validateDistrictsGridPage(DealerGridUrls.tamil, 'tamil', 'குஜராத்', ExpectedGujaratDistricts);
+      validateDistrictsGridPageForDealer(DealerGridUrls.tamil, 'tamil', 'குஜராத்', ExpectedGujaratDistricts);
     });
 
     it("35. Validate Gujarat District Names in Telugu (Dealer Grid)", () => {
-      validateDistrictsGridPage(DealerGridUrls.telugu, 'telugu', 'గుజరాత్', ExpectedGujaratDistricts);
+      validateDistrictsGridPageForDealer(DealerGridUrls.telugu, 'telugu', 'గుజరాత్', ExpectedGujaratDistricts);
     });
   });
 
 describe("Dealer Grid: PDP - Odisha District Validation", () => {
     it("36. Validate Odisha District Names in English (Dealer Grid)", () => {
-        validateDistrictsGridPage(DealerGridUrls.english, 'english', 'Odisha', ExpectedOdishaDistricts);
+        validateDistrictsGridPageForDealer(DealerGridUrls.english, 'english', 'Odisha', ExpectedOdishaDistricts);
     });
 
     it("37. Validate Odisha District Names in Hindi (Dealer Grid)", () => {
-        validateDistrictsGridPage(DealerGridUrls.hindi, 'hindi', 'ओडिशा', ExpectedOdishaDistricts);
+        validateDistrictsGridPageForDealer(DealerGridUrls.hindi, 'hindi', 'ओडिशा', ExpectedOdishaDistricts);
     });
 
     it("38. Validate Odisha District Names in Marathi (Dealer Grid)", () => {
-        validateDistrictsGridPage(DealerGridUrls.kannada, 'marathi', 'ओडिशा', ExpectedOdishaDistricts);
+        validateDistrictsGridPageForDealer(DealerGridUrls.marathi, 'marathi', 'ओडिशा', ExpectedOdishaDistricts);
     });
 
     it("39. Validate Odisha District Names in Tamil (Dealer Grid)", () => {
-        validateDistrictsGridPage(DealerGridUrls.tamil, 'tamil', 'ஒடிசா', ExpectedOdishaDistricts);
+        validateDistrictsGridPageForDealer(DealerGridUrls.tamil, 'tamil', 'ஒடிசா', ExpectedOdishaDistricts);
     });
 
     it("40. Validate Odisha District Names in Telugu (Dealer Grid)", () => {
-        validateDistrictsGridPage(DealerGridUrls.telugu, 'telugu', 'ఒడిశా', ExpectedOdishaDistricts);
+        validateDistrictsGridPageForDealer(DealerGridUrls.telugu, 'telugu', 'ఒడిశా', ExpectedOdishaDistricts);
     });
 });
 
 describe("Dealer Grid: PDP - Rajasthan District Validation", () => {
   it("41. Validate Rajasthan District Names in English (Dealer Grid)", () => {
-      validateDistrictsGridPage(DealerGridUrls.english, 'english', 'Rajasthan', ExpectedRajasthanDistricts);
+      validateDistrictsGridPageForDealer(DealerGridUrls.english, 'english', 'Rajasthan', ExpectedRajasthanDistricts);
   });
 
   it("42. Validate Rajasthan District Names in Hindi (Dealer Grid)", () => {
-      validateDistrictsGridPage(DealerGridUrls.hindi, 'hindi', 'राजस्थान', ExpectedRajasthanDistricts);
+      validateDistrictsGridPageForDealer(DealerGridUrls.hindi, 'hindi', 'राजस्थान', ExpectedRajasthanDistricts);
   });
 
   it("43. Validate Rajasthan District Names in Marathi (Dealer Grid)", () => {
-      validateDistrictsGridPage(DealerGridUrls.marathi, 'marathi', 'राजस्थान', ExpectedRajasthanDistricts);
+      validateDistrictsGridPageForDealer(DealerGridUrls.marathi, 'marathi', 'राजस्थान', ExpectedRajasthanDistricts);
   });
 
   it("44. Validate Rajasthan District Names in Tamil (Dealer Grid)", () => {
-      validateDistrictsGridPage(DealerGridUrls.tamil, 'tamil', 'ராஜஸ்தான்', ExpectedRajasthanDistricts);
+      validateDistrictsGridPageForDealer(DealerGridUrls.tamil, 'tamil', 'ராஜஸ்தான்', ExpectedRajasthanDistricts);
   });
 
   it("45. Validate Rajasthan District Names in Telugu (Dealer Grid)", () => {
-      validateDistrictsGridPage(DealerGridUrls.telugu, 'telugu', 'రాజస్థాన్', ExpectedRajasthanDistricts);
+      validateDistrictsGridPageForDealer(DealerGridUrls.telugu, 'telugu', 'రాజస్థాన్', ExpectedRajasthanDistricts);
   });
 });
 
 describe("Dealer Grid: PDP - West Bengal District Validation", () => {
   it("46. Validate West Bengal District Names in English (Dealer Grid)", () => {
-      validateDistrictsGridPage(DealerGridUrls.english, 'english', 'West Bengal', ExpectedWestBengalDistricts);
+      validateDistrictsGridPageForDealer(DealerGridUrls.english, 'english', 'West Bengal', ExpectedWestBengalDistricts);
   });
 
   it("47. Validate West Bengal District Names in Hindi (Dealer Grid)", () => {
-      validateDistrictsGridPage(DealerGridUrls.hindi, 'hindi', 'पश्चिम बंगाल', ExpectedWestBengalDistricts);
+      validateDistrictsGridPageForDealer(DealerGridUrls.hindi, 'hindi', 'पश्चिम बंगाल', ExpectedWestBengalDistricts);
   });
 
   it("48. Validate West Bengal District Names in Marathi (Dealer Grid)", () => {
-      validateDistrictsGridPage(DealerGridUrls.marathi, 'marathi', 'पश्चिम बंगाल', ExpectedWestBengalDistricts);
+      validateDistrictsGridPageForDealer(DealerGridUrls.marathi, 'marathi', 'पश्चिम बंगाल', ExpectedWestBengalDistricts);
   });
 
   it("49. Validate West Bengal District Names in Tamil (Dealer Grid)", () => {
-      validateDistrictsGridPage(DealerGridUrls.tamil, 'tamil', 'மேற்கு வங்காளம்', ExpectedWestBengalDistricts);
+      validateDistrictsGridPageForDealer(DealerGridUrls.tamil, 'tamil', 'மேற்கு வங்காளம்', ExpectedWestBengalDistricts);
   });
 
   it("50. Validate West Bengal District Names in Telugu (Dealer Grid)", () => {
-      validateDistrictsGridPage(DealerGridUrls.telugu, 'telugu', 'పశ్చిమ బెంగాల్', ExpectedWestBengalDistricts);
+      validateDistrictsGridPageForDealer(DealerGridUrls.telugu, 'telugu', 'పశ్చిమ బెంగాల్', ExpectedWestBengalDistricts);
   });
-});*/
+});
 
 
 

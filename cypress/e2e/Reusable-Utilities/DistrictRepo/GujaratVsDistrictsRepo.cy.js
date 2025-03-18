@@ -4,7 +4,7 @@ class GujaratVsDistrictsRepo {
         { english: "Ahmedabad", hindi: "अहमदाबाद", tamil: "அகமதாபாத்", telugu: "అహ్మదాబాద్", marathi: "अहमदाबाद" },
         { english: "Amreli", hindi: "अमरेली", tamil: "அம்ரேலி", telugu: "అమ్రేలి", marathi: "अमरेली" },
         { english: "Anand", hindi: "आनंद", tamil: "ஆனந்த்", telugu: "ఆనంద్", marathi: "आनंद" },
-        { english: "Aravalli", hindi: "अरवल्ली", tamil: "ஆரவல்லி", telugu: "అర్వల్లి", marathi: "आर्वल्ली" },
+        { english: "Arvalli", hindi: "अरवल्ली", tamil: "ஆரவல்லி", telugu: "అర్వల్లి", marathi: "आर्वल्ली" },
         { english: "Banas Kantha", hindi: "बनासकांठा", tamil: "பனாஸ் காந்தா", telugu: "బనాస్ కాంత", marathi: "बनास कंठा" },
         { english: "Bharuch", hindi: "भरूच", tamil: "பருச்", telugu: "భరూచ్", marathi: "भरुच" },
         { english: "Bhavnagar", hindi: "भावनगर", tamil: "பாவ்நகர்", telugu: "భావ్‌నగర్", marathi: "भावनगर" },

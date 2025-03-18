@@ -13,7 +13,7 @@ class KurnoolVsTehsilsRepo {
         { english: "Holagunda", hindi: "होलागुंडा", tamil: "ஹோலகுண்டா", telugu: "హొళగుండ", marathi: "होलागुंडा" },
         { english: "Kallur", hindi: "कल्लूर", tamil: "கல்லூர்", telugu: "కల్లూరు", marathi: "कल्लूर" },
         { english: "Kodumur", hindi: "कोडुमुर", tamil: "கொடுமூர்", telugu: "కోడుమూరు", marathi: "कोडुमुर" },
-        { english: "Kosigi", hindi: "कोसिगी", tamil: "கோசிகி", telugu: "కోసిగీ", marathi: "कोसिगी" },
+        { english: "Kosigi", hindi: "कोसिगी", tamil: "கோசிகி", telugu: "కోసిగి", marathi: "कोसिगी" },
         { english: "Kowthalam", hindi: "कौथलम", tamil: "கவுதாலம்", telugu: "కౌతాళం", marathi: "कौथलम" },
         { english: "Krishnagiri", hindi: "कृष्णागिरी", tamil: "கிருஷ்ணகிரி", telugu: "కృష్ణగిరి", marathi: "कृष्णगिरी" },
         { english: "Kurnool Rural", hindi: "कुरनूल ग्रामीण", tamil: "கர்னூல் கிராமம்", telugu: "కర్నూలు రూరల్", marathi: "कर्नूल ग्रामीण" },
